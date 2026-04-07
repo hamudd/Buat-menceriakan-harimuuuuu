@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Untuk Caca Tersayang 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Halaman 1 - Gloomy */
+        .page1 {
+            background: radial-gradient(circle at 30% 10%, #1e1a2f, #0b0a1a);
+            color: #e0d6e8;
+            position: relative;
+            overflow: hidden;
+        }
+        .sad-ornament {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatSlow 8s infinite ease-in-out;
+        }
+        @keyframes floatSlow {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .rain-drop {
+            position: absolute;
+            background: rgba(200, 210, 255, 0.2);
+            width: 2px;
+            height: 20px;
+            border-radius: 2px;
+            top: -20px;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        .gloomy-text {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(6px);
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,200,210,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            z-index: 10;
+            position: relative;
+        }
+        .gloomy-text:hover {
+            transform: scale(1.02);
+            background: rgba(80, 60, 100, 0.7);
+        }
+        /* Halaman 2 - Kuning Ceria */
+        .page2 {
+            background: linear-gradient(145deg, #fff3cf, #ffe3a3);
+            color: #b45f1b;
+            position: relative;
+        }
+        .cheerful-card {
+            background: rgba(255,250,210,0.85);
+            backdrop-filter: blur(4px);
+            padding: 1.5rem 2.5rem;
+            border-radius: 70px;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+            border: 2px solid #ffcd94;
+        }
+        .cheerful-card:hover {
+            background: #fff2b5;
+            transform: scale(1.02);
+        }
+        /* Halaman 3 - Romantis Pink + Foto */
+        .page3 {
+            background: linear-gradient(125deg, #ffe6f0, #ffc0d0, #ffb3c6);
+            position: relative;
+            overflow-x: hidden;
+        }
+        .romantic-container {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 245, 250, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 60px 60px 80px 80px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 20px 40px rgba(255, 80, 120, 0.25);
+            border: 2px solid #ff96ad;
+            z-index: 15;
+            position: relative;
+            margin: 1rem 0;
+        }
+        .love-message {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            font-weight: 600;
+            color: #a1304f;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        .photo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #ffdfe8;
+            border: 5px solid #ff8aa8;
+            box-shadow: 0 0 0 6px #ffc0d4, 0 15px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .change-photo-btn {
+            background: #ffb7cb;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            color: #871f42;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .change-photo-btn:hover {
+            background: #ff9bb6;
+            transform: scale(1.02);
+        }
+        .love-decoration {
+            position: absolute;
+            font-size: 1.8rem;
+            pointer-events: none;
+            z-index: 2;
+            animation: floatLove 6s infinite alternate ease-in-out;
+            opacity: 0.7;
+        }
+        @keyframes floatLove {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.5; }
+            100% { transform: translateY(-35px) rotate(12deg); opacity: 1; }
+        }
+        @media (max-width: 550px) {
+            .gloomy-text { font-size: 1.4rem; }
+            .cheerful-card { font-size: 1.4rem; }
+            .love-message { font-size: 1rem; }
+            .photo-frame { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Halaman 1 -->
+<div id="page1" class="page page1">
+    <div class="sad-ornament" style="top: 10%; left: 5%;">😢</div>
+    <div class="sad-ornament" style="bottom: 15%; right: 8%;">💧</div>
+    <div class="sad-ornament" style="top: 40%; right: 2%;">🌧️</div>
+    <div class="sad-ornament" style="bottom: 30%; left: 12%;">💔</div>
+    <div class="gloomy-text" id="btnToPage2">
+        🌧️ sayangku Caca kamu lagi capek ya? 🌧️
+    </div>
+</div>
+
+<!-- Halaman 2 -->
+<div id="page2" class="page page2 hidden">
+    <div class="cheerful-card" id="btnToPage3">
+        🌼 kalau capek tekan ini 🌼
+    </div>
+</div>
+
+<!-- Halaman 3 -->
+<div id="page3" class="page page3 hidden">
+    <!-- Hiasan cinta -->
+    <div class="love-decoration" style="top: 8%; left: 5%;">❤️</div>
+    <div class="love-decoration" style="top: 15%; right: 10%;">💖</div>
+    <div class="love-decoration" style="bottom: 12%; left: 8%;">💕</div>
+    <div class="love-decoration" style="bottom: 20%; right: 7%;">💗</div>
+    <div class="love-decoration" style="top: 40%; left: 2%;">✨</div>
+    <div class="love-decoration" style="top: 65%; right: 3%;">🌸</div>
+    <div class="love-decoration" style="top: 25%; left: 85%;">💌</div>
+    <div class="love-decoration" style="top: 50%; left: 92%;">💘</div>
+    <div class="love-decoration" style="top: 70%; left: 80%;">🎀</div>
+    <div class="love-decoration" style="top: 12%; left: 45%;">💞</div>
+    <div class="love-decoration" style="bottom: 40%; left: 50%;">💓</div>
+    <div class="love-decoration" style="top: 82%; left: 40%;">💝</div>
+    
+    <div class="romantic-container">
+        <div class="photo-area">
+            <div class="photo-frame" id="photoFrame">
+                <img id="lovePhoto" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ffb7c5'/%3E%3Ctext x='50' y='55' text-anchor='middle' fill='%23ffffff' font-size='40' dy='.3em'%3E💕%3C/text%3E%3C/svg%3E" alt="Foto Caca">
+            </div>
+            <input type="file" id="uploadPhoto" accept="image/*" style="display: none;">
+            <button class="change-photo-btn" id="changePhotoBtn">
+                <i class="fas fa-camera-retro"></i> Ganti Foto Cantik
+            </button>
+        </div>
+        <div class="love-message">
+            <p>💗 sayangkuuuu hari ini adalah hari pertama kali kamu kerjaaaa, aku bangga banget sama kamu sudah keluar dari zona nyaman kamu. 💗</p>
+            <p>😘 Aku tau kamu capek pasti karna jalan jauh tadi huhuhu, tapi semangat yaaa cintaku sayangkuuu yang lucu dan manjaaaaaaa aku ada selalu disisi kamuuuu. 😘</p>
+            <p>🌷 Semoga kamu terus sehat dan cepat pulih energinya agar aku bisa selalu melihat senyumanmu yang lucu dan membuat hariku cerahhh. 🌷</p>
+            <p>💋 Mwwwahhhh aku cinta kamu sayanggggg 💋</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    const page3 = document.getElementById('page3');
+    const btnToPage2 = document.getElementById('btnToPage2');
+    const btnToPage3 = document.getElementById('btnToPage3');
+
+    function showPage(pageToShow) {
+        page1.classList.add('hidden');
+        page2.classList.add('hidden');
+        page3.classList.add('hidden');
+        pageToShow.classList.remove('hidden');
+    }
+
+    btnToPage2.addEventListener('click', () => showPage(page2));
+    btnToPage3.addEventListener('click', () => showPage(page3));
+
+    // Fungsi ganti foto
+    const photoInput = document.getElementById('uploadPhoto');
+    const lovePhotoImg = document.getElementById('lovePhoto');
+    const changePhotoBtn = document.getElementById('changePhotoBtn');
+    const photoFrame = document.getElementById('photoFrame');
+
+    function handleImageUpload(file) {
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => { lovePhotoImg.src = e.target.result; };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    changePhotoBtn.addEventListener('click', () => photoInput.click());
+    photoFrame.addEventListener('click', () => photoInput.click());
+    photoInput.addEventListener('change', (event) => {
+        if (event.target.files[0]) handleImageUpload(event.target.files[0]);
+    });
+
+    // Hiasan hujan di halaman 1
+    for (let i = 0; i < 60; i++) {
+        const drop = document.createElement('div');
+        drop.classList.add('rain-drop');
+        drop.style.left = Math.random() * 100 + '%';
+        drop.style.animationDuration = (Math.random() * 1.5 + 0.8) + 's';
+        drop.style.animationDelay = Math.random() * 5 + 's';
+        page1.appendChild(drop);
+    }
+
+    // Floating love tambahan di halaman 3
+    for (let i = 0; i < 25; i++) {
+        const love = document.createElement('div');
+        love.classList.add('love-decoration');
+        love.innerText = ['❤️','💖','💕','💗','💓','💞','🌸','🐣'][Math.floor(Math.random()*8)];
+        love.style.top = Math.random() * 95 + '%';
+        love.style.left = Math.random() * 95 + '%';
+        love.style.fontSize = (Math.random() * 28 + 16) + 'px';
+        page3.appendChild(love);
+    }
+
+    showPage(page1);
+</script>
+</body>
+</html>
